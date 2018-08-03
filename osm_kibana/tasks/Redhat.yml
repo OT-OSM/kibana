@@ -60,3 +60,4 @@
   notify:
     - Restart nginx
     - Restart kibana
+
