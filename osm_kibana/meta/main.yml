@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Vishant
-  description: Ansible role to install Java
+  description: Ansible role to install Kibana
   company: Opstree
   license: MIT
   min_ansible_version: 1.9
@@ -18,3 +18,4 @@ galaxy_info:
   galaxy_tags:
     - Kibana
 dependencies: []
+
