@@ -64,7 +64,13 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: "{{ host }}"
       roles:
          - { role: osm_kibana }
+         
 
+Futuristic Scopes
+-----------------
+```
+Integrating kibana dashboards in ansible role.
+```
 License
 -------
 
