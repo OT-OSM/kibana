@@ -29,17 +29,12 @@ Supported OS
 ```
    This role will work on the following operating systems:
 
-   * Centos 6
-   * Centos 7
-   * Ubuntu 14/16
-   * Debian 14/16
-   * Redhat 6/7
+    * ubutnu 14
+    * ubuntu 16
+    * RHEL/CENTOS 6
+    * RHEL/CENTOS 7
+    * Amazon AMI
 ```
-
-Role Name
-=========
-
-A brief description of the role goes here.
 
 Requirements
 ------------
@@ -48,7 +43,7 @@ The only requirment is python-common-software-properties in Debian based Operati
 Role Variables
 --------------
 
-Available variables are listed below, along with default values [vars](https://github.com/opstree-ansible/osm_kibana/blob/master/vars/main.yml)
+Available variables are listed below, along with default values [vars](https://gitlab.com/vishant.sharma/osm_kibana/blob/master/osm_kibana/vars/main.yml)
 
 
 Dependencies
