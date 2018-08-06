@@ -6,7 +6,7 @@
     state: present
 
 - name: Installing dependencies ...
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
       - apt-transport-https
 
@@ -23,10 +23,10 @@
     - test
 
 - name: Installing Kibana
-  apt: name=kibana state=installed 
+  apt: name=kibana state=present 
 
 - name: Installing Kibana and Nginx dependencies ...
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
       - nginx
       - apache2-utils
