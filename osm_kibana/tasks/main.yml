@@ -24,4 +24,3 @@
   when:
     - ansible_version >= '2.4'
     - ansible_os_family == "RedHat"
-
