@@ -1,8 +1,5 @@
 ---
-- hosts: all 
+- hosts: all
   become: true
   roles:
     - { role: osm_kibana }
-
-
- 

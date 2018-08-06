@@ -1,14 +1,14 @@
 ---
 
-- name:  Add key for kibana
+- name: Add key for kibana
   apt_key:
-    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch 
+    url: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     state: present
 
 - name: Installing dependencies ...
   apt: name={{ item }} state=present
   with_items:
-      - apt-transport-https
+    - apt-transport-https
 
 - name: Add Kibana repository...
   apt_repository:
@@ -16,20 +16,20 @@
     state: present
 
 - name: Update cache...
-  apt: 
+  apt:
     update_cache: yes
-    cache_valid_time: 86400 
+    cache_valid_time: 86400
   tags:
     - test
 
 - name: Installing Kibana
-  apt: name=kibana state=present 
+  apt: name=kibana state=present
 
 - name: Installing Kibana and Nginx dependencies ...
   apt: name={{ item }} state=present
   with_items:
-      - nginx
-      - apache2-utils
+    - nginx
+    - apache2-utils
   notify:
     - Start kibana
     - Start nginx
@@ -47,7 +47,7 @@
     name: "{{ elk_kibana_username }}"
     password: "{{ elk_kibana_password }}"
     path: /etc/nginx/htpasswd.users
-  
+
 - name: Adding Nginx configuration file ...
   template: src=kibana.yml.j2 dest=/etc/kibana/kibana.yml
   notify:
@@ -57,4 +57,3 @@
   template: src=default.j2 dest=/etc/nginx/sites-available/default
   notify:
     - Restart nginx
-

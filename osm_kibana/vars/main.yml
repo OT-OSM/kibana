@@ -9,5 +9,4 @@ elasticsearch_ip: "0.0.0.0"
 kibana_server_ip: "0.0.0.0"
 kibana_port: "5601"
 elasticsearch_port: "9200"
-#Kibana_server_centos_ip: "192.168.0.97"
-
+# Kibana_server_centos_ip: "192.168.0.97"
