@@ -31,8 +31,8 @@
     - nginx
     - apache2-utils
   notify:
-    - Start kibana
-    - Start nginx
+    - Restart nginx
+    - Restart kibana
 
 - name: Install passlib (required for writing htpasswd file)...
   apt:
