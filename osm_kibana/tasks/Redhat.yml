@@ -10,11 +10,11 @@
 - name: Downloading kibana package ...
   get_url:
     url: https://artifacts.elastic.co/downloads/kibana/kibana-{{ kibana_version_rpm }}-x86_64.rpm
-    dest: /root/
+    dest: /opt/
 
 - name: Installing kibana ...
   yum:
-    name: /root/kibana-{{ kibana_version_rpm }}-x86_64.rpm
+    name: /opt/kibana-{{ kibana_version_rpm }}-x86_64.rpm
     state: present
 
 - name: Adding kibana configuration file ...
