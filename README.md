@@ -1,28 +1,13 @@
-osm_kibana
-----------
-This repo is configuring kibana which is accessed by nginx for mutil version OS. This repo by default install kibana 6 but can be dynamic by passing extra-vars or changing the values in ```vars/main.yml```
+OSM_KIBANA
+==========
+This repo is configuring kibana. This repo by default install kibana 7 but can be dynamic by passing extra-vars or changing the values in ```vars/main.yml```
 
-Kibana Directory Structure
---------------------------
-```
-├── osm_kibana
-│   ├── handlers
-│   │   └── main.yml
-│   ├── meta
-│   │   └── main.yml
-│   ├── tasks
-│   │   ├── Debian.yml
-│   │   ├── main.yml
-│   │   └── Redhat.yml
-│   ├── templates
-│   │   ├── default.j2
-│   │   ├── kibana.yml.j2
-│   │   └── nginx.conf.j2
-│   └── vars
-│       └── main.yml
-├── README.md
-└── site.yml
-```
+Version History
+---------------
+
+|**Date**| **Version**| **Description**| **Changed By** |
+|----------|---------|---------------|-----------------|
+|**April '03** | v.1.0 | Initial Draft | Vishant Sharma |
 
 Supported OS
 ------------
@@ -38,28 +23,64 @@ Supported OS
 
 Requirements
 ------------
-The only requirment is python-common-software-properties in Debian based Operating System.
+```
+The only requirment is root access of the server and python-common-software-properties in Debian based Operating System.
+```
 
 Role Variables
 --------------
 
-Available variables are listed below, along with default values [vars](https://gitlab.com/vishant.sharma/osm_kibana/blob/master/osm_kibana/vars/main.yml)
+|**Variable**|**Default Value**|**Description**|
+|------------|-----------------|---------------|
+| kibana_version_series | 7 | Kibana series version series |
+| kibana_version | 7.5.1 | Kibana specific version |
+| kibana_version_rpm | 7.5.1 | Kibana specific version |
+| es_username | elastic | Username of Elastic search |
+| es_password | elastic@pass | Password for Elastic search |
+| kibana_server_ip | 0.0.0.0 | Server IP for Kibana |
+| kibana_port | 5601 | Port on which kibana runs |
+| elasticsearch_port | Value of Elastic Search port |
+| elasticsearch_ip | 192.168.1.2 | Ip address of Elastic search |
 
+Kibana Directory Structure
+--------------------------
+```
+├── osm_kibana
+│   ├── handlers
+│   │   └── main.yml
+│   ├── meta
+│   │   └── main.yml
+│   ├── tasks
+│   │   ├── Debian.yml
+│   │   ├── main.yml
+│   │   └── Redhat.yml
+│   ├── templates
+│   │   ├── kibana.yml.j2
+│   └── vars
+│       └── main.yml
+├── README.md
+└── site.yml
+```
+Inventory
+---------
+An example inventory could be like this:-
 
-Dependencies
-------------
-
-None.
+```ini
+[kibana]
+kibana_server ansible_user=ubuntu
+```
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Here is an example of playbook to execute this role:-
 
-    - hosts: "{{ host }}"
-      roles:
-         - { role: osm_kibana }
-         
+```yaml
+---
+- hosts: kibana
+  roles:
+    - role: osm_kibana
+```
 
 Futuristic Scopes
 -----------------
@@ -73,10 +94,7 @@ BSD
 
 Author Information
 ------------------
-###### vishant.sharma@opstree.com
-
-###### 9871665962
+**[vishant.sharma](vishant.sharma@opstree.com)**
 
 ###### www.opstree.com
-
 ###### blog.opstree.com

@@ -11,7 +11,7 @@
 
 - name: Add Kibana repository...
   apt_repository:
-    repo: 'deb https://artifacts.elastic.co/packages/{{ kibana_series }}.x/apt stable main'
+    repo: 'deb https://artifacts.elastic.co/packages/{{ kibana_version_series }}.x/apt stable main'
     state: present
 
 - name: Update cache...
@@ -19,10 +19,19 @@
     update_cache: true
     cache_valid_time: 86400
 
-- name: Installing Kibana
+# Installing logstash specific version
+- name: Install Kibana specific version
   apt:
     name: kibana={{ kibana_version }}
     state: present
+    update_cache: true
+  when: kibana_version is defined
+
+- name: Installing Kibana
+  apt:
+    name: kibana
+    state: present
+  when: kibana_version is undefined
 
 - name: Adding Kibana configuration file ...
   template:
