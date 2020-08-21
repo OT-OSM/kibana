@@ -2,7 +2,6 @@
 # handlers file for kibana
 
 - name: Restart kibana
-  service: name=kibana state=restarted
-
-- name: Restart nginx
-  service: name=nginx state=restarted
+  service:
+    name: kibana
+    state: restarted
