@@ -1,5 +1,10 @@
 OSM_KIBANA
 ==========
+[![Opstree Solutions][opstree_avatar]][opstree_homepage]<br/>[Opstree Solutions][opstree_homepage] 
+
+  [opstree_homepage]: https://opstree.github.io/
+  [opstree_avatar]: https://img.cloudposse.com/150x150/https://github.com/opstree.png
+  
 This repo is configuring kibana. This repo by default install kibana 7 but can be dynamic by passing extra-vars or changing the values in ```vars/main.yml```
 
 Version History
@@ -7,18 +12,17 @@ Version History
 
 |**Date**| **Version**| **Description**| **Changed By** |
 |----------|---------|---------------|-----------------|
-|**April '03** | v.1.0 | Initial Draft | Vishant Sharma |
+|**Aug '21** | v0.0.1 | Initial Draft | Vishant Sharma |
 
 Supported OS
 ------------
 ```
    This role will work on the following operating systems:
 
-    * ubutnu 14
-    * ubuntu 16
+    * ubutnu 16
+    * ubuntu 18
     * RHEL/CENTOS 6
     * RHEL/CENTOS 7
-    * Amazon AMI
 ```
 
 Requirements
