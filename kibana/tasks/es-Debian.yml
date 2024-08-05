@@ -1,0 +1,32 @@
+---
+- name: Updating the apt package.
+  apt:
+    update_cache: yes
+
+- name: Install Dependencies
+  apt:
+    name: "{{ Dependency }}"
+    state: present
+
+- name: Adding GPG key for kibana.
+  apt_key:
+      url: "{{ kibana_GPG_key }}"
+      state: present
+      validate_certs: yes
+      keyring: "{{ key_ring }}"
+      
+
+- name: Adding repository for kibana.
+  apt_repository:
+      repo: "{{ Repo }}"
+      state: present
+      
+- name: Installing kibana.
+  apt:
+      update_cache: yes
+      name: kibana 
+      state: present
+  notify: Restart kibana          
+
+
+
