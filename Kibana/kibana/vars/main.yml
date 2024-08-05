@@ -1,0 +1,7 @@
+---
+tool:
+  - kibana
+
+dependency:
+  - openjdk-8-jdk
+  - apt-transport-https

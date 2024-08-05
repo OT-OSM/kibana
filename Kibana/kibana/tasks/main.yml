@@ -1,0 +1,9 @@
+---
+- name: Installing dependencies
+  include_tasks: dependency.yml
+
+- name: Installing kibana
+  include_tasks: installing.yml
+
+- name: kibana configuration
+  include_tasks: configuring.yml 

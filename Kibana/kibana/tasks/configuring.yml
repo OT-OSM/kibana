@@ -1,0 +1,6 @@
+---
+- name: jinja2 template configuration
+  template:
+    src: kibana.j2
+    dest: /etc/kibana/kibana.yml
+    mode: 0644
