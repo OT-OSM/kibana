@@ -1,0 +1,30 @@
+---
+- name: Update the yum cache.
+  yum:
+    update_cache: yes 
+
+- name: Installing dependencies.
+  yum:
+    name: "{{ Dependency }}"
+    state: present  
+
+- name: Adding GPG key for kibana.
+  rpm_key:
+      state: present
+      key: "{{ kibana_GPG_key }}"
+
+- name: Adding repository for kibana.
+  yum_repository:
+      name: elastic-8.x
+      description: "Elastic repository for 8.x packages"
+      baseurl: "{{ base_url }}"
+      gpgcheck: yes
+      gpgkey: "{{ kibana_GPG_key }}"
+      enabled: yes
+      
+- name: Installing Kibana.
+  yum:
+      name: kibana
+      state: present
+  notify: Restart kibana
+

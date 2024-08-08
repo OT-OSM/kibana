@@ -1,0 +1,18 @@
+---
+
+Dependency:
+  - openjdk-8-jdk
+  - apt-transport-https
+
+
+kibana_GPG_key: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+
+kibana_version: "8"
+
+baseurl: https://artifacts.elastic.co/packages/{{ kibana_version }}.x/yum
+
+Repo: 'deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/{{ kibana_version }}.x/apt stable main'
+
+key_ring: /usr/share/keyrings/elasticsearch-keyring.gpg
+
+Elasticsearch-hosts: ["http://localhost:9200"]

@@ -1,0 +1,16 @@
+---
+- name: Backup default Kibana configuration file
+  ansible.builtin.copy:
+    src: /etc/kibana/kibana.yml
+    dest: /etc/kibana/kibana.yml.backup
+    owner: root
+    group: root
+    mode: '0644'
+    backup: yes
+
+- name: configure updated kibana config file
+  template:
+    src: kibana.yml.j2
+    dest: /etc/kibana/kibana.yml
+    mode: 0644
+  notify: Restart kibana
